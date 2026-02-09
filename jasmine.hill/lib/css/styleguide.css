@@ -1,8 +1,7 @@
-body { background: hotpink !important; }
-
 /* =========================
    CSS RESET (lecture)
    ========================= */
+body { background: hotpink !important; }
 
 *,
 *::before,
