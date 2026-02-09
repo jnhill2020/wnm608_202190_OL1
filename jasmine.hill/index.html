@@ -1,155 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blush & Cozy</title>
-  <link rel="stylesheet" href="./lib/css/styleguide.css" />
+	<meta charset="UTF-8">
+	<title>Cool Website</title>
 </head>
-
 <body>
+	
+	<!-- header>h1+p -->
+	<header>
+		<h1>Cool Website</h1>
+		<p>Such a cool website</p>
+	</header>
 
-  <header class="header">
-    <div class="container header-inner">
-      <div class="brand">
-        <h1>Blush & Cozy</h1>
-        <p class="muted">Lorem ipsum • cozy storefront draft</p>
-      </div>
+	<!-- nav.nav>ul>li*4>a[href=#article$]>{Link $} -->
+	<nav class="nav">
+		<ul>
+			<li><a href="#article1">Link 1</a></li>
+			<li><a href="#article2">Link 2</a></li>
+			<li><a href="#article3">Link 3</a></li>
+			<li><a href="#article4">Link 4</a></li>
+		</ul>
+	</nav>
 
-      <nav class="navbar">
-        <a class="navlink" href="#products">Products</a>
-        <a class="navlink" href="#deals">Deals</a>
-        <a class="navlink" href="#about">About</a>
-        <a class="navlink" href="#newsletter">Newsletter</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-
-    <!-- HERO / INTRO -->
-    <section class="card hero">
-      <div class="hero-content">
-        <h2>Cozy season essentials</h2>
-        <p class="muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Placeholder copy)
-        </p>
-
-        <div class="row gap-sm">
-          <a class="btn btn-primary" href="#products">Shop Now</a>
-          <a class="btn btn-ghost" href="#newsletter">Get Updates</a>
-        </div>
-      </div>
-
-      <!-- Lecture concept: ViewWindow -->
-      <div class="viewwindow hero-media">
-        <div class="viewwindow-inner"></div>
-      </div>
-    </section>
-
-    <!-- DEALS / PROMOS -->
-    <section id="deals" class="section">
-      <div class="section-title">
-        <h3>Today’s promos</h3>
-        <p class="muted">Lorem ipsum placeholder</p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card card-soft">
-          <h4>Bundle & Save</h4>
-          <p class="muted">Lorem ipsum dolor sit amet.</p>
-          <span class="pill">15% OFF</span>
-        </article>
-
-        <article class="card card-soft">
-          <h4>Free Shipping</h4>
-          <p class="muted">Lorem ipsum dolor sit amet.</p>
-          <span class="pill">50+ USD</span>
-        </article>
-
-        <article class="card card-soft">
-          <h4>New Drop</h4>
-          <p class="muted">Lorem ipsum dolor sit amet.</p>
-          <span class="pill">Limited</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="section">
-      <div class="section-title">
-        <h3>Featured products</h3>
-        <p class="muted">Lorem ipsum dolor sit amet</p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card product">
-          <div class="viewwindow">
-            <div class="viewwindow-inner img-1"></div>
-          </div>
-          <div class="product-body">
-            <h4>Vanilla Cloud Candle</h4>
-            <p class="muted">$18 • Lorem ipsum</p>
-            <a class="btn btn-primary" href="#">Add</a>
-          </div>
-        </article>
-
-        <article class="card product">
-          <div class="viewwindow">
-            <div class="viewwindow-inner img-2"></div>
-          </div>
-          <div class="product-body">
-            <h4>Silk Scrunchie Set</h4>
-            <p class="muted">$12 • Lorem ipsum</p>
-            <a class="btn btn-primary" href="#">Add</a>
-          </div>
-        </article>
-
-        <article class="card product">
-          <div class="viewwindow">
-            <div class="viewwindow-inner img-3"></div>
-          </div>
-          <div class="product-body">
-            <h4>Cozy Pink Mug</h4>
-            <p class="muted">$16 • Lorem ipsum</p>
-            <a class="btn btn-primary" href="#">Add</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT + NEWSLETTER -->
-    <section class="section split">
-      <article id="about" class="card">
-        <h3>About the shop</h3>
-        <p class="muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.
-        </p>
-        <p class="muted">
-          Lorem ipsum dolor sit amet. (Placeholder text)
-        </p>
-      </article>
-
-      <aside id="newsletter" class="card">
-        <h3>Newsletter</h3>
-        <p class="muted">Lorem ipsum dolor sit amet, consectetur.</p>
-
-        <form class="newsletter" action="#" method="post">
-          <input type="email" placeholder="email@domain.com" required />
-          <button class="btn btn-primary" type="submit">Subscribe</button>
-        </form>
-
-        <p class="tiny muted">Placeholder form — not connected</p>
-      </aside>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p class="muted tiny">© 2026 Blush & Cozy • Lorem ipsum • Terms • Privacy</p>
-    </div>
-  </footer>
+	<!-- .container>article#article$.article*4>h2{Article $}+div.article-body>p*3>lorem40 -->
+	<div class="container">
+		<article id="article1" class="article">
+			<h2>Article 1</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore molestias aliquam, deserunt harum facere odit tempora id molestiae. Excepturi deleniti in quo soluta hic corporis, obcaecati id deserunt nostrum facere ea consectetur totam neque reiciendis est perspiciatis nisi. Sequi, voluptate!</p>
+				<p>Fugiat earum voluptatibus, officiis perspiciatis in commodi incidunt non quas nulla ipsum, unde aliquam voluptate dignissimos animi accusamus deleniti labore qui eligendi molestias, assumenda laboriosam, pariatur. Ut facilis quis repellendus ex? Quo nesciunt repudiandae reiciendis quae eligendi neque odit non.</p>
+				<p>Animi sapiente labore ipsum esse excepturi inventore sequi doloribus tempora corrupti omnis, quos, velit id ab voluptates nobis saepe dolorem qui unde modi cupiditate porro, consequatur suscipit. Voluptatum, esse nesciunt fuga impedit molestiae, commodi tempore eligendi, quidem sed quis vel.</p>
+			</div>
+		</article>
+		<article id="article2" class="article">
+			<h2>Article 2</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Laboriosam a facere blanditiis esse distinctio dicta quidem architecto dignissimos ducimus, quas aperiam labore eveniet porro eum doloremque doloribus impedit adipisci incidunt repellat cumque, amet! Doloribus commodi quos praesentium facilis inventore fuga.</p>
+				<p>A nemo ab sint cupiditate consequuntur tenetur, quis quaerat recusandae itaque reiciendis dicta vel voluptatibus repudiandae commodi quos qui dignissimos voluptates sit illum corporis praesentium eum modi. At ea expedita, saepe, asperiores enim, adipisci ex, exercitationem explicabo labore dolores soluta!</p>
+				<p>Itaque, consequuntur fuga distinctio explicabo tempora, repudiandae ipsa quisquam perferendis facilis necessitatibus est eaque eligendi modi in optio, assumenda. Accusamus, quis, facere? Itaque suscipit expedita voluptas deserunt eligendi tenetur non, natus, voluptatum, laboriosam repellat rem dolor qui nesciunt provident adipisci.</p>
+			</div>
+		</article>
+		<article id="article3" class="article">
+			<h2>Article 3</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facere labore modi eius voluptatibus eum, eaque, temporibus qui fugiat quae, natus deleniti quos voluptate, impedit! Aliquid illum, minima non maiores reprehenderit quae at recusandae dolorum dignissimos, sapiente dolores nam quam!</p>
+				<p>Et magni consectetur atque totam quaerat optio distinctio ea, dolore voluptas, quo, ipsa! Sit sed facilis repellat illo quia aperiam tempore quibusdam sunt aspernatur animi? Placeat aliquid sapiente ea reprehenderit veniam expedita earum eum voluptatum. Nostrum est rerum error delectus.</p>
+				<p>Necessitatibus, repellat ea quisquam. Fugiat nam, voluptatibus maxime doloremque nostrum numquam, possimus perspiciatis asperiores? Eius asperiores iure ullam fugiat, nesciunt quasi, omnis dolore necessitatibus reprehenderit dicta tempora mollitia deserunt quo sequi sint tempore, amet doloremque molestiae, corrupti reiciendis sit! Molestias.</p>
+			</div>
+		</article>
+		<article id="article4" class="article">
+			<h2>Article 4</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, error consequuntur dolores repellendus dolorem quia deleniti, adipisci, quis nam eius incidunt corrupti! Atque recusandae a debitis optio ratione, cupiditate corrupti quaerat, maiores unde quas veniam, laborum repellendus repellat natus adipisci!</p>
+				<p>Ex nulla ducimus aspernatur nesciunt unde, esse repellendus culpa quod illum distinctio minus consectetur cupiditate, sapiente? Nobis et, quae sed obcaecati eos vitae vero amet doloribus sint omnis necessitatibus nisi quasi facere deserunt? Quae veniam officiis explicabo, molestias. Error, tempora.</p>
+				<p>Officia adipisci non ipsa tenetur velit ratione repellat quas ea eveniet minus atque iure eum porro vero voluptate aut, quae numquam deserunt commodi magni repellendus enim iste laborum accusamus ad. A blanditiis porro reprehenderit, omnis quibusdam optio quia eos nesciunt?</p>
+			</div>
+		</article>
+	</div>
 
 </body>
 </html>
