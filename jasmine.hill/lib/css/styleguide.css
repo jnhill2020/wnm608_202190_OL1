@@ -1,0 +1,305 @@
+/* =========================
+   CSS RESET (lecture)
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* =========================
+   :root custom properties (lecture)
+   ========================= */
+
+:root {
+  --bg: #fff7fb;
+  --surface: #ffffff;
+  --text: #2b2230;
+  --muted: #6f6176;
+  --line: #f2dbe8;
+
+  --primary: #ff6fb4;
+  --primary-soft: #ffd1e8;
+  --accent: #bda7ff;
+
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(30, 10, 30, 0.08);
+
+  --max: 1000px;
+  --pad: 22px;
+  --gap: 14px;
+}
+
+/* Base type (lecture reset sections) */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Structure classes (lecture)
+   ========================= */
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.section {
+  margin: 22px 0 30px;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.gap-sm {
+  gap: 10px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--gap);
+}
+
+/* =========================
+   Components (lecture)
+   Card + variations
+   ========================= */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.card-soft {
+  background: linear-gradient(135deg, #ffffff 0%, #ffe6f3 55%, #f3efff 100%);
+}
+
+/* =========================
+   ViewWindow component (lecture)
+   ========================= */
+
+.viewwindow {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.viewwindow-inner {
+  height: 160px;
+  background: radial-gradient(circle at top left, #ffd1e8 0%, #f3efff 55%, #ffffff 100%);
+}
+
+/* Different “images” without real images (still looks human) */
+.img-1 { background: radial-gradient(circle at top left, #ffd1e8 0%, #fff 70%); }
+.img-2 { background: radial-gradient(circle at top right, #c9b6ff 0%, #fff 70%); }
+.img-3 { background: radial-gradient(circle at bottom left, #ffe0ef 0%, #fff 70%); }
+
+/* =========================
+   Navbar component (lecture)
+   ========================= */
+
+.header {
+  padding: 22px 0 10px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+}
+
+.brand p {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
+}
+
+.navlink {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--text);
+  font-weight: 650;
+}
+
+.navlink:hover {
+  background: #ffe6f3;
+  text-decoration: none;
+}
+
+/* =========================
+   Hero
+   ========================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--gap);
+  align-items: center;
+  padding: 22px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe6f3 40%, #f3efff 100%);
+}
+
+.hero h2 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+}
+
+.hero-media .viewwindow-inner {
+  height: 220px;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 750;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.98);
+  text-decoration: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-ghost:hover {
+  background: #ffe6f3;
+  text-decoration: none;
+}
+
+/* =========================
+   Little helpers
+   ========================= */
+
+.muted { color: var(--muted); }
+.tiny { font-size: 0.9rem; }
+
+.pill {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+
+/* Products */
+.product {
+  padding: 14px;
+}
+
+.product-body {
+  padding-top: 12px;
+}
+
+/* Newsletter */
+.newsletter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input[type="email"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  outline: none;
+}
+
+input[type="email"]:focus {
+  border-color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  padding: 24px 0 36px;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
