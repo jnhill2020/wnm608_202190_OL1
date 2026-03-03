@@ -63,14 +63,94 @@ main website content will appear across product pages and informational sections
 
 <p><strong>Base font size:</strong> 16px</p>
 <p><strong>Spacing scale:</strong> 8px / 16px / 24px / 32px</p>
+<section class="sg-section" id="forms">
+  <h2 class="sg-title">Forms</h2>
 
-<div class="spacing">
-<div class="space s8">8px</div>
-<div class="space s16">16px</div>
-<div class="space s24">24px</div>
-<div class="space s32">32px</div>
-</div>
+  <!-- Inputs -->
+  <div class="sg-block">
+    <h3 class="sg-subtitle">Inputs</h3>
 
+    <label class="sg-label" for="sg-name">Basic input</label>
+    <input class="input" id="sg-name" type="text" placeholder="Your name">
+
+    <label class="sg-label" for="sg-email">Warning input</label>
+    <input class="input input--warning" id="sg-email" type="email" placeholder="Email address">
+
+    <label class="sg-label" for="sg-zip">Alert / error input</label>
+    <input class="input input--alert" id="sg-zip" type="text" placeholder="Zip code">
+
+    <label class="sg-label" for="sg-money">Money input</label>
+    <div class="money-input">
+      <span class="money-input__icon">$</span>
+      <input class="input input--money" id="sg-money" type="text" placeholder="0.00">
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="sg-block">
+    <h3 class="sg-subtitle">Buttons</h3>
+
+    <div class="btn-row">
+      <button class="btn" type="button">Basic</button>
+      <button class="btn btn--hero" type="button">Hero</button>
+      <button class="btn btn--warning" type="button">Warning</button>
+      <button class="btn btn--alert" type="button">Alert</button>
+      <button class="btn" type="button" disabled>Disabled</button>
+    </div>
+  </div>
+
+  <!-- Hotdog -->
+  <div class="sg-block">
+    <h3 class="sg-subtitle">Hotdog (search)</h3>
+
+    <div class="hotdog">
+      <span class="hotdog__icon">🔎</span>
+      <input class="hotdog__input" type="search" placeholder="Search...">
+      <button class="hotdog__btn" type="button">Go</button>
+    </div>
+
+    <p class="sg-note">Used for search bars. Same shape as buttons but it’s an input.</p>
+  </div>
+
+  <!-- Select -->
+  <div class="sg-block">
+    <h3 class="sg-subtitle">Select</h3>
+
+    <label class="sg-label" for="sg-select">Dropdown</label>
+    <div class="select-wrap">
+      <select class="select" id="sg-select">
+        <option value="">Pick one</option>
+        <option>Option A</option>
+        <option>Option B</option>
+        <option>Option C</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Custom checkbox -->
+  <div class="sg-block">
+    <h3 class="sg-subtitle">Custom checkbox</h3>
+
+    <label class="check">
+      <input class="check__input" type="checkbox">
+      <span class="check__box"></span>
+      Subscribe to updates
+    </label>
+  </div>
+
+  <!-- Checkbox trick -->
+  <div class="sg-block">
+    <h3 class="sg-subtitle">Checkbox trick (no JS)</h3>
+
+    <input class="toggle" type="checkbox" id="sg-toggle">
+    <label class="btn btn--ghost" for="sg-toggle">Open / close panel</label>
+
+    <div class="panel">
+      <p class="panel__text">
+        This opens using only CSS (hidden checkbox + label).
+      </p>
+    </div>
+  </div>
 </section>
 
 </div>
