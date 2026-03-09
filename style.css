@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: Helvetica, Arial,  sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   background: #fff5fa;
   color: #3a2a35;
 }
@@ -114,6 +114,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 /* STYLE GUIDE ONLY */
 
 body {
@@ -195,6 +196,7 @@ a {
   padding: 10px;
   border-radius: 6px;
 }
+
 /* ===== style guide spacing (so it looks organized) ===== */
 .sg-section { padding: 2rem 0; }
 .sg-title { margin: 0 0 1rem; }
@@ -211,6 +213,12 @@ a {
   border: 1px solid #cfcfcf;
   background: #fff;
   outline: none;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: 'Lato', sans-serif;
 }
 
 .input:focus { border-color: #111; }
@@ -309,6 +317,12 @@ a {
   user-select: none;
 }
 
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
 .check__input { position: absolute; opacity: 0; pointer-events: none; }
 
 .check__box {
@@ -354,4 +368,23 @@ a {
 .toggle:checked ~ .panel {
   max-height: 140px;
   padding: 0 1rem;
+}
+
+/* Newsletter form */
+.newsletter-form{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
+}
+
+.newsletter-form input{
+  padding:10px 14px;
+  border-radius:20px;
+  border:1px solid #ccc;
+  width:250px;
+}
+
+.newsletter-form button{
+  border-radius:20px;
 }

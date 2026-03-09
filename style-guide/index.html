@@ -53,7 +53,6 @@ main website content will appear across product pages and informational sections
 <br><br>
 
 <button class="btn">Primary Button</button>
-
 </section>
 
 <hr>
@@ -63,6 +62,8 @@ main website content will appear across product pages and informational sections
 
 <p><strong>Base font size:</strong> 16px</p>
 <p><strong>Spacing scale:</strong> 8px / 16px / 24px / 32px</p>
+</section>
+
 <section class="sg-section" id="forms">
   <h2 class="sg-title">Forms</h2>
 
@@ -82,8 +83,14 @@ main website content will appear across product pages and informational sections
     <label class="sg-label" for="sg-money">Money input</label>
     <div class="money-input">
       <span class="money-input__icon">$</span>
-      <input class="input input--money" id="sg-money" type="text" placeholder="0.00">
+      <input class="input input--money" id="sg-money" type="number" placeholder="0.00" step="0.01">
     </div>
+
+    <label class="sg-label" for="sg-password">Password input</label>
+    <input class="input" id="sg-password" type="password" placeholder="Enter password">
+
+    <label class="sg-label" for="sg-message">Textarea</label>
+    <textarea class="input textarea" id="sg-message" placeholder="Write your message"></textarea>
   </div>
 
   <!-- Buttons -->
@@ -136,6 +143,25 @@ main website content will appear across product pages and informational sections
       <span class="check__box"></span>
       Subscribe to updates
     </label>
+  </div>
+
+  <!-- Radio buttons -->
+  <div class="sg-block">
+    <h3 class="sg-subtitle">Radio buttons</h3>
+
+    <div class="radio-group">
+      <label class="check">
+        <input class="check__input" type="radio" name="shipping">
+        <span class="check__box"></span>
+        Standard shipping
+      </label>
+
+      <label class="check">
+        <input class="check__input" type="radio" name="shipping">
+        <span class="check__box"></span>
+        Express shipping
+      </label>
+    </div>
   </div>
 
   <!-- Checkbox trick -->
