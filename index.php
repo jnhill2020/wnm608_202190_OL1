@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blush & Cozy Crochet</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <h1>Blush & Cozy Crochet</h1>
-  <p>Storefront landing page draft</p>
-</header>
-
-<nav>
-  <a href="#">Shop</a>
-  <a href="#">Deals</a>
-  <a href="#">About</a>
-  <a href="#">Newsletter</a>
-</nav>
+<?php include('parts/header.php'); ?>
+<?php include('parts/nav.php'); ?>
 
 <div class="container">
+
   <section class="hero">
     <h2>Cozy season essentials</h2>
     <p>Handmade crochet pieces designed for comfort and cozy everyday style.</p>
@@ -48,24 +30,16 @@
     <p>Get updates on new crochet drops and cozy collections.</p>
 
     <form class="newsletter-form">
-      <input 
-        type="email" 
+      <input
+        type="email"
         class="input"
         placeholder="Enter your email address"
         required
       >
-
-      <button class="btn btn--hero" type="submit">
-        Subscribe
-      </button>
+      <button class="btn btn--hero" type="submit">Subscribe</button>
     </form>
-
   </section>
+
 </div>
 
-<footer>
-  © 2026 Blush & Cozy
-</footer>
-
-</body>
-</html>
+<?php include('parts/footer.php'); ?>
