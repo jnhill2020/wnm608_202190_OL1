@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Jasmine Hill",
+    "type": "Admin",
+    "email": "jasnhill2020@gmail.com",
+    "classes": "Web Design"
+  },
+  {
+    "name": "Jasmine Hill",
+    "type": "Student",
+    "email": "jhill39@art.edu",
+    "classes": "IXD 613, 608, 605"
+  }
+]
