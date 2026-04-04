@@ -1,35 +1,68 @@
+<?php include_once "parts/templates.php"; ?>
+
 <?php
 $json = file_get_contents("data/users.json");
 $users = json_decode($json, true);
 
-$id = $_GET['id'];
+$id = $_GET['id'] ?? 0;
 $user = $users[$id];
 ?>
 
-<h2>Edit User</h2>
+<?=makePage('User Editor', [
+    "css" => "style.css"
+])?>
 
-<form method="post">
+<section class="view-window">
+    <div class="container">
 
-    <label>Name</label>
-    <input type="text" name="name" value="<?php echo $user['name']; ?>">
+        <h2>User Editor</h2>
 
-    <br><br>
+        <div class="grid gap">
 
-    <label>Type</label>
-    <input type="text" name="type" value="<?php echo $user['type']; ?>">
+            <div>
+                <h3>Select a User</h3>
+                <ul>
+                    <?php foreach($users as $i => $u): ?>
+                        <li>
+                            <a href="user.php?id=<?=$i?>">
+                                <?=$u['name']?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
 
-    <br><br>
+            <div>
+                <h3>Edit User</h3>
 
-    <label>Email</label>
-    <input type="email" name="email" value="<?php echo $user['email']; ?>">
+                <form method="post">
+                    <label>Name</label>
+                    <input type="text" name="name" value="<?=$user['name']?>">
 
-    <br><br>
+                    <br><br>
 
-    <label>Classes</label>
-    <input type="text" name="classes" value="<?php echo $user['classes']; ?>">
+                    <label>Type</label>
+                    <input type="text" name="type" value="<?=$user['type']?>">
 
-    <br><br>
+                    <br><br>
 
-    <button type="submit">Save User</button>
+                    <label>Email</label>
+                    <input type="email" name="email" value="<?=$user['email']?>">
 
-</form>
+                    <br><br>
+
+                    <label>Classes</label>
+                    <input type="text" name="classes" value="<?=$user['classes']?>">
+
+                    <br><br>
+
+                    <button type="submit" class="button">Save User</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<?=makeFooter()?>
