@@ -1,68 +1,70 @@
-<?php include_once "parts/templates.php"; ?>
-
 <?php
 $json = file_get_contents("data/users.json");
 $users = json_decode($json, true);
 
 $id = $_GET['id'] ?? 0;
 $user = $users[$id];
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $users[$id]['name'] = $_POST['name'];
+    $users[$id]['type'] = $_POST['type'];
+    $users[$id]['email'] = $_POST['email'];
+    $users[$id]['classes'] = $_POST['classes'];
+
+    file_put_contents("data/users.json", json_encode($users, JSON_PRETTY_PRINT));
+    $user = $users[$id];
+}
 ?>
 
-<?=makePage('User Editor', [
-    "css" => "style.css"
-])?>
+<?php include('parts/header.php'); ?>
+<?php include('parts/nav.php'); ?>
 
-<section class="view-window">
-    <div class="container">
+<div class="container">
+  <section class="page-intro">
+    <h2>User Editor</h2>
+    <p>Select a user and update their information below.</p>
+  </section>
 
-        <h2>User Editor</h2>
+  <section class="shop-layout">
+    <aside class="filters card">
+      <h3>Select User</h3>
+      <ul>
+        <?php foreach($users as $i => $u): ?>
+          <li>
+            <a href="user.php?id=<?=$i?>"><?=$u['name']?> (<?=$u['type']?>)</a>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    </aside>
 
-        <div class="grid gap">
+    <div class="card" style="padding:20px; width:100%;">
+      <h3>Edit User</h3>
 
-            <div>
-                <h3>Select a User</h3>
-                <ul>
-                    <?php foreach($users as $i => $u): ?>
-                        <li>
-                            <a href="user.php?id=<?=$i?>">
-                                <?=$u['name']?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
+      <form method="post">
+        <label>Name</label><br>
+        <input type="text" name="name" value="<?php echo $user['name']; ?>">
 
-            <div>
-                <h3>Edit User</h3>
+        <br><br>
 
-                <form method="post">
-                    <label>Name</label>
-                    <input type="text" name="name" value="<?=$user['name']?>">
+        <label>Type</label><br>
+        <input type="text" name="type" value="<?php echo $user['type']; ?>">
 
-                    <br><br>
+        <br><br>
 
-                    <label>Type</label>
-                    <input type="text" name="type" value="<?=$user['type']?>">
+        <label>Email</label><br>
+        <input type="email" name="email" value="<?php echo $user['email']; ?>">
 
-                    <br><br>
+        <br><br>
 
-                    <label>Email</label>
-                    <input type="email" name="email" value="<?=$user['email']?>">
+        <label>Classes</label><br>
+        <input type="text" name="classes" value="<?php echo $user['classes']; ?>">
 
-                    <br><br>
+        <br><br>
 
-                    <label>Classes</label>
-                    <input type="text" name="classes" value="<?=$user['classes']?>">
-
-                    <br><br>
-
-                    <button type="submit" class="button">Save User</button>
-                </form>
-            </div>
-
-        </div>
-
+        <button type="submit" class="btn">Save User</button>
+      </form>
     </div>
-</section>
+  </section>
+</div>
 
-<?=makeFooter()?>
+<?php include('parts/footer.php'); ?>
