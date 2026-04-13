@@ -1,22 +1,34 @@
+<?php include('db_connect.php'); ?>
 <?php include('parts/header.php'); ?>
 <?php include('parts/nav.php'); ?>
 
-<div class="container">
-  <section class="product-layout">
-    <div class="card">
-      <h2>Product Image</h2>
-      <p>Main product photo goes here.</p>
-    </div>
+<?php
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-    <div class="card">
-      <h2>Chunky Crochet Sweater</h2>
-      <p><strong>Price:</strong> $48.00</p>
-      <p><strong>Availability:</strong> In Stock</p>
-      <p>
-        This handmade crochet sweater is soft, warm, and designed for cozy everyday outfits.
-      </p>
-      <p><strong>Material:</strong> Acrylic yarn</p>
-      <p><strong>Care:</strong> Hand wash cold, lay flat to dry</p>
+$result = $conn->query("SELECT * FROM products WHERE id = $id");
+
+if (!$result || $result->num_rows == 0) {
+  echo "<div class='container'><p>Product not found.</p></div>";
+  include('parts/footer.php');
+  exit;
+}
+
+$row = $result->fetch_assoc();
+?>
+
+<div class="container">
+  <section class="page-intro">
+    <h2><?= htmlspecialchars($row['name']) ?></h2>
+    <p>Product details for this handmade crochet item.</p>
+  </section>
+
+  <section class="product-single card">
+    <div class="product-info">
+      <h3><?= htmlspecialchars($row['name']) ?></h3>
+      <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
+      <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
+      <p><?= htmlspecialchars($row['description']) ?></p>
+
       <a class="btn" href="cart.php">Add to Cart</a>
     </div>
   </section>
