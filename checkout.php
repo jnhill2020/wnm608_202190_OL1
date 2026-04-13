@@ -52,7 +52,7 @@ $total = $price + $shipping;
         <p>No item selected.</p>
       <?php endif; ?>
 
-      <a class="btn" href="confirmation.php">Complete Purchase</a>
+      <a class="btn" href="confirmation.php?id=<?= $row['id'] ?>">Complete Purchase</a>
     </aside>
   </section>
 </div>
