@@ -1,3 +1,4 @@
+<?php include('db_connect.php'); ?>
 <?php include('parts/header.php'); ?>
 <?php include('parts/nav.php'); ?>
 
@@ -17,29 +18,30 @@
     </aside>
 
     <div class="product-grid">
-      <div class="card">
-        <h3>Chunky Crochet Sweater</h3>
-        <p>$48.00</p>
-        <a class="btn" href="product.php">View Product</a>
-      </div>
 
-      <div class="card">
-        <h3>Mini Bear Plushie</h3>
-        <p>$22.00</p>
-        <a class="btn" href="product.php">View Product</a>
-      </div>
+      <?php
+      $result = $conn->query("SELECT * FROM products");
 
-      <div class="card">
-        <h3>Soft Pink Beanie</h3>
-        <p>$18.00</p>
-        <a class="btn" href="product.php">View Product</a>
-      </div>
+      if($result && $result->num_rows > 0):
+        while($row = $result->fetch_assoc()):
+      ?>
 
-      <div class="card">
-        <h3>Crochet Tote Bag</h3>
-        <p>$30.00</p>
-        <a class="btn" href="product.php">View Product</a>
-      </div>
+        <div class="card">
+          <h3><?= htmlspecialchars($row['name']) ?></h3>
+          <p>$<?= number_format($row['price'], 2) ?></p>
+          <p><?= htmlspecialchars($row['description']) ?></p>
+          <a class="btn" href="product.php?id=<?= $row['id'] ?>">View Product</a>
+        </div>
+
+      <?php
+        endwhile;
+      else:
+      ?>
+
+        <p>No products found.</p>
+
+      <?php endif; ?>
+
     </div>
   </section>
 </div>
