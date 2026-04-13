@@ -29,7 +29,7 @@ $row = $result->fetch_assoc();
       <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
       <p><?= htmlspecialchars($row['description']) ?></p>
 
-      <a class="btn" href="cart.php">Add to Cart</a>
+      <a class="btn" href="cart.php?id=<?= $row['id'] ?>">Add to Cart</a>
     </div>
   </section>
 </div>
