@@ -18,10 +18,11 @@ $row = $result ? $result->fetch_assoc() : null;
   <?php if($row): ?>
     <div class="card">
       <h3><?= htmlspecialchars($row['name']) ?></h3>
-      <p>Price: $<?= number_format($row['price'], 2) ?></p>
+      <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
+      <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
       <p><?= htmlspecialchars($row['description']) ?></p>
 
-      <a class="btn" href="checkout.php">Proceed to Checkout</a>
+      <a class="btn" href="checkout.php?id=<?= $row['id'] ?>">Proceed to Checkout</a>
     </div>
   <?php else: ?>
     <p>No item in cart.</p>

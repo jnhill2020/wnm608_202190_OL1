@@ -1,3 +1,16 @@
+<?php include('db_connect.php'); ?>
+
+<?php
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+$result = $conn->query("SELECT * FROM products WHERE id = $id");
+$row = $result ? $result->fetch_assoc() : null;
+
+$price = $row ? $row['price'] : 0;
+$shipping = 5;
+$total = $price + $shipping;
+?>
+
 <?php include('parts/header.php'); ?>
 <?php include('parts/nav.php'); ?>
 
@@ -29,9 +42,16 @@
 
     <aside class="card">
       <h3>Order Summary</h3>
-      <p>Subtotal: $70.00</p>
-      <p>Shipping: $5.00</p>
-      <p><strong>Total: $75.00</strong></p>
+
+      <?php if($row): ?>
+        <p><strong>Item:</strong> <?= htmlspecialchars($row['name']) ?></p>
+        <p>Subtotal: $<?= number_format($price, 2) ?></p>
+        <p>Shipping: $<?= number_format($shipping, 2) ?></p>
+        <p><strong>Total: $<?= number_format($total, 2) ?></strong></p>
+      <?php else: ?>
+        <p>No item selected.</p>
+      <?php endif; ?>
+
       <a class="btn" href="confirmation.php">Complete Purchase</a>
     </aside>
   </section>
