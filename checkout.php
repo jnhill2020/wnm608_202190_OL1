@@ -45,9 +45,13 @@ $total = 0;
       <h3>Order Summary</h3>
 
       <?php if (!empty($_SESSION['cart'])): ?>
-        <?php foreach ($_SESSION['cart'] as $id => $qty): ?>
+        <?php foreach ($_SESSION['cart'] as $item): ?>
           <?php
-          $id = (int)$id;
+          $id = (int)$item['id'];
+          $qty = (int)$item['qty'];
+          $style = htmlspecialchars($item['style']);
+          $color = htmlspecialchars($item['color']);
+
           $result = $conn->query("SELECT * FROM products WHERE id = $id");
           $row = $result ? $result->fetch_assoc() : null;
 
@@ -58,8 +62,10 @@ $total = 0;
           ?>
 
           <p><strong>Item:</strong> <?= htmlspecialchars($row['name']) ?></p>
-          <p>Quantity: <?= $qty ?></p>
-          <p>Item Total: $<?= number_format($item_total, 2) ?></p>
+          <p><strong>Style:</strong> <?= $style ?></p>
+          <p><strong>Color:</strong> <?= $color ?></p>
+          <p><strong>Quantity:</strong> <?= $qty ?></p>
+          <p><strong>Item Total:</strong> $<?= number_format($item_total, 2) ?></p>
           <hr>
         <?php endforeach; ?>
 

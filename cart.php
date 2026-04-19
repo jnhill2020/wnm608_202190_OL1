@@ -11,21 +11,28 @@ if (!isset($_SESSION['cart'])) {
 if (isset($_GET['add']) && isset($_GET['id'])) {
   $id = (int)$_GET['id'];
   $qty = isset($_GET['qty']) ? (int)$_GET['qty'] : 1;
+  $style = isset($_GET['style']) ? trim($_GET['style']) : 'Classic';
+  $color = isset($_GET['color']) ? trim($_GET['color']) : 'Red';
 
   if ($qty < 1) {
     $qty = 1;
   }
 
-  if (isset($_SESSION['cart'][$id])) {
-    $_SESSION['cart'][$id] += $qty;
-  } else {
-    $_SESSION['cart'][$id] = $qty;
-  }
+  $_SESSION['cart'][] = [
+    'id' => $id,
+    'qty' => $qty,
+    'style' => $style,
+    'color' => $color
+  ];
 }
 
 if (isset($_GET['remove'])) {
-  $remove_id = (int)$_GET['remove'];
-  unset($_SESSION['cart'][$remove_id]);
+  $remove_index = (int)$_GET['remove'];
+
+  if (isset($_SESSION['cart'][$remove_index])) {
+    unset($_SESSION['cart'][$remove_index]);
+    $_SESSION['cart'] = array_values($_SESSION['cart']);
+  }
 }
 
 $total = 0;
@@ -38,9 +45,13 @@ $total = 0;
   </section>
 
   <?php if (!empty($_SESSION['cart'])): ?>
-    <?php foreach ($_SESSION['cart'] as $id => $qty): ?>
+    <?php foreach ($_SESSION['cart'] as $index => $item): ?>
       <?php
-      $id = (int)$id;
+      $id = (int)$item['id'];
+      $qty = (int)$item['qty'];
+      $style = htmlspecialchars($item['style']);
+      $color = htmlspecialchars($item['color']);
+
       $result = $conn->query("SELECT * FROM products WHERE id = $id");
       $row = $result ? $result->fetch_assoc() : null;
 
@@ -56,12 +67,14 @@ $total = 0;
         <h3><?= htmlspecialchars($row['name']) ?></h3>
         <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
         <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
+        <p><strong>Style:</strong> <?= $style ?></p>
+        <p><strong>Color:</strong> <?= $color ?></p>
         <p><strong>Quantity:</strong> <?= $qty ?></p>
         <p><strong>Subtotal:</strong> $<?= number_format($subtotal, 2) ?></p>
         <p><?= htmlspecialchars($row['description']) ?></p>
 
         <p>
-          <a class="btn" href="cart.php?remove=<?= $row['id'] ?>">Remove Item</a>
+          <a class="btn" href="cart.php?remove=<?= $index ?>">Remove Item</a>
         </p>
       </div>
     <?php endforeach; ?>

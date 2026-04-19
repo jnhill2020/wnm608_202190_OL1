@@ -36,8 +36,25 @@ $row = $result->fetch_assoc();
       <form action="cart.php" method="get" class="product-form">
         <input type="hidden" name="id" value="<?= $row['id'] ?>">
 
+        <label for="style">Style:</label>
+        <select id="style" name="style" class="input" required>
+          <option value="Classic">Classic</option>
+          <option value="Custom">Custom</option>
+          <option value="Gift Wrapped">Gift Wrapped</option>
+        </select>
+
+        <label for="color">Color:</label>
+        <select id="color" name="color" class="input" required>
+          <option value="Red">Red</option>
+          <option value="Blue">Blue</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Green">Green</option>
+          <option value="Orange">Orange</option>
+          <option value="Purple">Purple</option>
+        </select>
+
         <label for="qty">Quantity:</label>
-        <input type="number" id="qty" name="qty" value="1" min="1">
+        <input type="number" id="qty" name="qty" value="1" min="1" required>
 
         <button class="btn" type="submit" name="add">Add to Cart</button>
       </form>

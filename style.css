@@ -128,7 +128,8 @@ nav a {
 }
 
 .input,
-input {
+input,
+select {
   width: 100%;
   padding: 0.9rem 1rem;
   border-radius: 12px;
@@ -136,6 +137,10 @@ input {
   background: #fff;
   font-size: 1rem;
   outline: none;
+}
+
+input[type="number"] {
+  max-width: 120px;
 }
 
 label {
@@ -245,5 +250,9 @@ footer {
 
   .card img {
     height: auto;
+  }
+
+  input[type="number"] {
+    max-width: 100%;
   }
 }
