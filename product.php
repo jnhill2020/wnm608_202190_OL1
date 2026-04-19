@@ -23,13 +23,24 @@ $row = $result->fetch_assoc();
   </section>
 
   <section class="product-single card">
+    <div class="product-image">
+      <img src="images/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
+    </div>
+
     <div class="product-info">
       <h3><?= htmlspecialchars($row['name']) ?></h3>
       <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
       <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
       <p><?= htmlspecialchars($row['description']) ?></p>
 
-      <a class="btn" href="cart.php?id=<?= $row['id'] ?>">Add to Cart</a>
+      <form action="cart.php" method="get" class="product-form">
+        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+
+        <label for="qty">Quantity:</label>
+        <input type="number" id="qty" name="qty" value="1" min="1">
+
+        <button class="btn" type="submit" name="add">Add to Cart</button>
+      </form>
     </div>
   </section>
 </div>

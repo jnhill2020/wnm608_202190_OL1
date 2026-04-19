@@ -1,18 +1,17 @@
-<?php include('db_connect.php'); ?>
-
 <?php
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+session_start();
+include('db_connect.php');
+include('parts/header.php');
+include('parts/nav.php');
 
-$result = $conn->query("SELECT * FROM products WHERE id = $id");
-$row = $result ? $result->fetch_assoc() : null;
+if (!isset($_SESSION['cart'])) {
+  $_SESSION['cart'] = [];
+}
 
-$price = $row ? $row['price'] : 0;
-$shipping = 5;
-$total = $price + $shipping;
+$shipping = 5.00;
+$subtotal = 0;
+$total = 0;
 ?>
-
-<?php include('parts/header.php'); ?>
-<?php include('parts/nav.php'); ?>
 
 <div class="container">
   <section class="page-intro">
@@ -24,35 +23,55 @@ $total = $price + $shipping;
     <div class="card">
       <h3>Shipping Information</h3>
 
-      <form class="form-stack">
-        <input type="text" class="input" placeholder="Full Name">
-        <input type="text" class="input" placeholder="Street Address">
-        <input type="text" class="input" placeholder="City">
-        <input type="text" class="input" placeholder="State">
-        <input type="text" class="input" placeholder="Zip Code">
+      <form class="form-stack" action="confirmation.php" method="post">
+        <input type="text" class="input" name="fullname" placeholder="Full Name" required>
+        <input type="text" class="input" name="address" placeholder="Street Address" required>
+        <input type="text" class="input" name="city" placeholder="City" required>
+        <input type="text" class="input" name="state" placeholder="State" required>
+        <input type="text" class="input" name="zip" placeholder="Zip Code" required>
 
         <h3>Billing Information</h3>
 
-        <input type="text" class="input" placeholder="Cardholder Name">
-        <input type="text" class="input" placeholder="Card Number">
-        <input type="text" class="input" placeholder="Expiration Date">
-        <input type="text" class="input" placeholder="CVV">
+        <input type="text" class="input" name="cardname" placeholder="Cardholder Name" required>
+        <input type="text" class="input" name="cardnumber" placeholder="Card Number" required>
+        <input type="text" class="input" name="expdate" placeholder="Expiration Date" required>
+        <input type="text" class="input" name="cvv" placeholder="CVV" required>
+
+        <button class="btn" type="submit">Complete Purchase</button>
       </form>
     </div>
 
     <aside class="card">
       <h3>Order Summary</h3>
 
-      <?php if($row): ?>
-        <p><strong>Item:</strong> <?= htmlspecialchars($row['name']) ?></p>
-        <p>Subtotal: $<?= number_format($price, 2) ?></p>
+      <?php if (!empty($_SESSION['cart'])): ?>
+        <?php foreach ($_SESSION['cart'] as $id => $qty): ?>
+          <?php
+          $id = (int)$id;
+          $result = $conn->query("SELECT * FROM products WHERE id = $id");
+          $row = $result ? $result->fetch_assoc() : null;
+
+          if (!$row) continue;
+
+          $item_total = $row['price'] * $qty;
+          $subtotal += $item_total;
+          ?>
+
+          <p><strong>Item:</strong> <?= htmlspecialchars($row['name']) ?></p>
+          <p>Quantity: <?= $qty ?></p>
+          <p>Item Total: $<?= number_format($item_total, 2) ?></p>
+          <hr>
+        <?php endforeach; ?>
+
+        <?php $total = $subtotal + $shipping; ?>
+
+        <p>Subtotal: $<?= number_format($subtotal, 2) ?></p>
         <p>Shipping: $<?= number_format($shipping, 2) ?></p>
         <p><strong>Total: $<?= number_format($total, 2) ?></strong></p>
-      <?php else: ?>
-        <p>No item selected.</p>
-      <?php endif; ?>
 
-      <a class="btn" href="confirmation.php?id=<?= $row['id'] ?>">Complete Purchase</a>
+      <?php else: ?>
+        <p>No items in cart.</p>
+      <?php endif; ?>
     </aside>
   </section>
 </div>

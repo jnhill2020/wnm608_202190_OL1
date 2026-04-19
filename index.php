@@ -1,5 +1,10 @@
+<?php include('db_connect.php'); ?>
 <?php include('parts/header.php'); ?>
 <?php include('parts/nav.php'); ?>
+
+<?php
+$result = $conn->query("SELECT * FROM products");
+?>
 
 <div class="container">
 
@@ -8,20 +13,29 @@
     <p>Handmade crochet pieces designed for comfort and cozy everyday style.</p>
   </section>
 
-  <section class="cards">
-    <div class="card">
-      <h3>New Arrivals</h3>
-      <p>Check out our newest handmade crochet pieces.</p>
-    </div>
+  <section class="product-list">
+    <h2>Shop Products</h2>
 
-    <div class="card">
-      <h3>Discounts</h3>
-      <p>Limited-time cozy deals on select items.</p>
-    </div>
+    <div class="cards">
+      <?php while($row = $result->fetch_assoc()): ?>
+        <div class="card">
+          <img src="images/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
 
-    <div class="card">
-      <h3>Best Sellers</h3>
-      <p>Customer favorites everyone is loving.</p>
+          <h3><?= htmlspecialchars($row['name']) ?></h3>
+          <p>$<?= number_format($row['price'], 2) ?></p>
+
+          <form action="cart.php" method="get">
+            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+
+            <label for="qty<?= $row['id'] ?>">Qty:</label>
+            <input type="number" id="qty<?= $row['id'] ?>" name="qty" value="1" min="1">
+
+            <button class="btn" type="submit" name="add">Add to Cart</button>
+          </form>
+
+          <p><a class="btn" href="product.php?id=<?= $row['id'] ?>">View Item</a></p>
+        </div>
+      <?php endwhile; ?>
     </div>
   </section>
 

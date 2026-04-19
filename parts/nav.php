@@ -5,9 +5,7 @@
 
 <nav>
   <a href="index.php">Home</a>
-  <a href="products.php">Shop</a>
-  <a href="product.php">Product</a>
+  <a href="index.php">Shop</a>
   <a href="cart.php">Cart</a>
   <a href="checkout.php">Checkout</a>
-  <a href="confirmation.php">Confirmation</a>
 </nav>
