@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('db_connect.php');
 include('parts/header.php');
 include('parts/nav.php');
@@ -45,6 +44,7 @@ $total = 0;
   </section>
 
   <?php if (!empty($_SESSION['cart'])): ?>
+
     <?php foreach ($_SESSION['cart'] as $index => $item): ?>
       <?php
       $id = (int)$item['id'];
@@ -61,32 +61,38 @@ $total = 0;
       $total += $subtotal;
       ?>
 
-      <div class="card">
+      <div class="card cart-item-card">
         <img src="images/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
 
-        <h3><?= htmlspecialchars($row['name']) ?></h3>
-        <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
-        <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
-        <p><strong>Style:</strong> <?= $style ?></p>
-        <p><strong>Color:</strong> <?= $color ?></p>
-        <p><strong>Quantity:</strong> <?= $qty ?></p>
-        <p><strong>Subtotal:</strong> $<?= number_format($subtotal, 2) ?></p>
-        <p><?= htmlspecialchars($row['description']) ?></p>
+        <div>
+          <h3><?= htmlspecialchars($row['name']) ?></h3>
+          <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
+          <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
+          <p><strong>Style:</strong> <?= $style ?></p>
+          <p><strong>Color:</strong> <?= $color ?></p>
+          <p><strong>Quantity:</strong> <?= $qty ?></p>
+          <p><strong>Subtotal:</strong> $<?= number_format($subtotal, 2) ?></p>
+          <p><?= htmlspecialchars($row['description']) ?></p>
 
-        <p>
           <a class="btn" href="cart.php?remove=<?= $index ?>">Remove Item</a>
-        </p>
+        </div>
       </div>
+
     <?php endforeach; ?>
 
-    <section class="card">
+    <section class="card cart-total">
       <h3>Cart Total</h3>
       <p><strong>Total:</strong> $<?= number_format($total, 2) ?></p>
       <a class="btn" href="checkout.php">Proceed to Checkout</a>
     </section>
 
   <?php else: ?>
-    <p>No items in cart.</p>
+
+    <section class="card confirmation">
+      <p>No items in cart.</p>
+      <a class="btn" href="products.php">Continue Shopping</a>
+    </section>
+
   <?php endif; ?>
 </div>
 
