@@ -37,6 +37,7 @@
         $name = htmlspecialchars($row['name']);
         $price = number_format($row['price'], 2);
         $description = htmlspecialchars($row['description']);
+        $image = !empty($row['image']) ? htmlspecialchars($row['image']) : 'images/placeholder.jpg';
 
         $category = "crochet";
 
@@ -53,6 +54,8 @@
         data-name="<?= strtolower($name) ?>"
         data-price="<?= $row['price'] ?>"
         data-category="<?= $category ?>">
+
+        <img src="<?= $image ?>" alt="<?= $name ?>" class="product-img">
 
         <h3><?= $name ?></h3>
         <p class="product-price">$<?= $price ?></p>
@@ -100,12 +103,26 @@ function updateProducts() {
     filteredProducts.sort((a, b) => Number(b.dataset.price) - Number(a.dataset.price));
   }
 
-  productGrid.innerHTML = "";
+  products.forEach(product => {
+    product.style.display = "none";
+  });
+
+  filteredProducts.forEach(product => {
+    product.style.display = "block";
+    productGrid.appendChild(product);
+  });
+
+  let noResults = document.getElementById("noResults");
 
   if (filteredProducts.length === 0) {
-    productGrid.innerHTML = "<p>No matching products found.</p>";
-  } else {
-    filteredProducts.forEach(product => productGrid.appendChild(product));
+    if (!noResults) {
+      noResults = document.createElement("p");
+      noResults.id = "noResults";
+      noResults.textContent = "No matching products found.";
+      productGrid.appendChild(noResults);
+    }
+  } else if (noResults) {
+    noResults.remove();
   }
 }
 
