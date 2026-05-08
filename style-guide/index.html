@@ -11,6 +11,7 @@
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="../style.css">
+
 </head>
 
 <body>
@@ -22,20 +23,22 @@
 
 <hr>
 
+<!-- COLOR PALETTE -->
 <section>
 <h2>Color Palette</h2>
 
 <div class="colors">
-<div class="color-box primary">#F4A6B8<br>Primary</div>
-<div class="color-box secondary">#EED6C4<br>Secondary</div>
-<div class="color-box background">#FAF7F4<br>Background</div>
-<div class="color-box text-color">#4A3F35<br>Text</div>
-<div class="color-box accent">#8E6A79<br>Accent</div>
+  <div class="color-box primary">#F4A6B8<br>Primary</div>
+  <div class="color-box secondary">#EED6C4<br>Secondary</div>
+  <div class="color-box background">#FAF7F4<br>Background</div>
+  <div class="color-box text-color">#4A3F35<br>Text</div>
+  <div class="color-box accent">#8E6A79<br>Accent</div>
 </div>
 </section>
 
 <hr>
 
+<!-- TYPOGRAPHY -->
 <section>
 <h2>Typography</h2>
 
@@ -57,6 +60,7 @@ main website content will appear across product pages and informational sections
 
 <hr>
 
+<!-- SIZING -->
 <section>
 <h2>Sizing System</h2>
 
@@ -64,119 +68,219 @@ main website content will appear across product pages and informational sections
 <p><strong>Spacing scale:</strong> 8px / 16px / 24px / 32px</p>
 </section>
 
+<hr>
+
+<!-- NAVIGATION -->
+<section>
+<h2>Navigation</h2>
+
+<nav class="nav">
+  <a href="#" class="btn">Home</a>
+  <a href="#" class="btn">Shop</a>
+  <a href="#" class="btn">Cart</a>
+  <a href="#" class="btn">Checkout</a>
+</nav>
+</section>
+
+<hr>
+
+<!-- PRODUCT CARD -->
+<section>
+<h2>Product Card</h2>
+
+<div class="product-card">
+
+  <img 
+    src="../images/beanie.jpeg" 
+    alt="Soft Pink Beanie"
+    style="width:200px;border-radius:20px;"
+  >
+
+  <h3>Soft Pink Beanie</h3>
+
+  <p>$18.00</p>
+
+  <button class="btn">Add to Cart</button>
+
+</div>
+</section>
+
+<hr>
+
+<!-- FORMS -->
 <section class="sg-section" id="forms">
-  <h2 class="sg-title">Forms</h2>
 
-  <!-- Inputs -->
-  <div class="sg-block">
-    <h3 class="sg-subtitle">Inputs</h3>
+<h2 class="sg-title">Forms</h2>
 
-    <label class="sg-label" for="sg-name">Basic input</label>
-    <input class="input" id="sg-name" type="text" placeholder="Your name">
+<!-- INPUTS -->
+<div class="sg-block">
 
-    <label class="sg-label" for="sg-email">Warning input</label>
-    <input class="input input--warning" id="sg-email" type="email" placeholder="Email address">
+  <h3 class="sg-subtitle">Inputs</h3>
 
-    <label class="sg-label" for="sg-zip">Alert / error input</label>
-    <input class="input input--alert" id="sg-zip" type="text" placeholder="Zip code">
+  <label class="sg-label" for="sg-name">Basic input</label>
+  <input class="input" id="sg-name" type="text" placeholder="Your name">
 
-    <label class="sg-label" for="sg-money">Money input</label>
-    <div class="money-input">
-      <span class="money-input__icon">$</span>
-      <input class="input input--money" id="sg-money" type="number" placeholder="0.00" step="0.01">
-    </div>
+  <label class="sg-label" for="sg-email">Warning input</label>
+  <input class="input input--warning" id="sg-email" type="email" placeholder="Email address">
 
-    <label class="sg-label" for="sg-password">Password input</label>
-    <input class="input" id="sg-password" type="password" placeholder="Enter password">
+  <label class="sg-label" for="sg-zip">Alert / error input</label>
+  <input class="input input--alert" id="sg-zip" type="text" placeholder="Zip code">
 
-    <label class="sg-label" for="sg-message">Textarea</label>
-    <textarea class="input textarea" id="sg-message" placeholder="Write your message"></textarea>
+  <label class="sg-label" for="sg-money">Money input</label>
+
+  <div class="money-input">
+    <span class="money-input__icon">$</span>
+
+    <input 
+      class="input input--money" 
+      id="sg-money" 
+      type="number" 
+      placeholder="0.00" 
+      step="0.01"
+    >
   </div>
 
-  <!-- Buttons -->
-  <div class="sg-block">
-    <h3 class="sg-subtitle">Buttons</h3>
+  <label class="sg-label" for="sg-password">Password input</label>
+  <input class="input" id="sg-password" type="password" placeholder="Enter password">
 
-    <div class="btn-row">
-      <button class="btn" type="button">Basic</button>
-      <button class="btn btn--hero" type="button">Hero</button>
-      <button class="btn btn--warning" type="button">Warning</button>
-      <button class="btn btn--alert" type="button">Alert</button>
-      <button class="btn" type="button" disabled>Disabled</button>
-    </div>
+  <label class="sg-label" for="sg-message">Textarea</label>
+
+  <textarea 
+    class="input textarea" 
+    id="sg-message" 
+    placeholder="Write your message"
+  ></textarea>
+
+</div>
+
+<!-- BUTTONS -->
+<div class="sg-block">
+
+  <h3 class="sg-subtitle">Buttons</h3>
+
+  <div class="btn-row">
+    <button class="btn" type="button">Basic</button>
+    <button class="btn btn--hero" type="button">Hero</button>
+    <button class="btn btn--warning" type="button">Warning</button>
+    <button class="btn btn--alert" type="button">Alert</button>
+    <button class="btn" type="button" disabled>Disabled</button>
   </div>
 
-  <!-- Hotdog -->
-  <div class="sg-block">
-    <h3 class="sg-subtitle">Hotdog (search)</h3>
+</div>
 
-    <div class="hotdog">
-      <span class="hotdog__icon">🔎</span>
-      <input class="hotdog__input" type="search" placeholder="Search...">
-      <button class="hotdog__btn" type="button">Go</button>
-    </div>
+<!-- HOTDOG -->
+<div class="sg-block">
 
-    <p class="sg-note">Used for search bars. Same shape as buttons but it’s an input.</p>
+  <h3 class="sg-subtitle">Hotdog (search)</h3>
+
+  <div class="hotdog">
+
+    <span class="hotdog__icon">🔎</span>
+
+    <input 
+      class="hotdog__input" 
+      type="search" 
+      placeholder="Search..."
+    >
+
+    <button class="hotdog__btn" type="button">Go</button>
+
   </div>
 
-  <!-- Select -->
-  <div class="sg-block">
-    <h3 class="sg-subtitle">Select</h3>
+  <p class="sg-note">
+    Used for search bars. Same shape as buttons but it’s an input.
+  </p>
 
-    <label class="sg-label" for="sg-select">Dropdown</label>
-    <div class="select-wrap">
-      <select class="select" id="sg-select">
-        <option value="">Pick one</option>
-        <option>Option A</option>
-        <option>Option B</option>
-        <option>Option C</option>
-      </select>
-    </div>
+</div>
+
+<!-- SELECT -->
+<div class="sg-block">
+
+  <h3 class="sg-subtitle">Select</h3>
+
+  <label class="sg-label" for="sg-select">Dropdown</label>
+
+  <div class="select-wrap">
+
+    <select class="select" id="sg-select">
+      <option value="">Pick one</option>
+      <option>Option A</option>
+      <option>Option B</option>
+      <option>Option C</option>
+    </select>
+
   </div>
 
-  <!-- Custom checkbox -->
-  <div class="sg-block">
-    <h3 class="sg-subtitle">Custom checkbox</h3>
+</div>
+
+<!-- CUSTOM CHECKBOX -->
+<div class="sg-block">
+
+  <h3 class="sg-subtitle">Custom checkbox</h3>
+
+  <label class="check">
+    <input class="check__input" type="checkbox">
+    <span class="check__box"></span>
+    Subscribe to updates
+  </label>
+
+</div>
+
+<!-- RADIO -->
+<div class="sg-block">
+
+  <h3 class="sg-subtitle">Radio buttons</h3>
+
+  <div class="radio-group">
 
     <label class="check">
-      <input class="check__input" type="checkbox">
+      <input class="check__input" type="radio" name="shipping">
       <span class="check__box"></span>
-      Subscribe to updates
+      Standard shipping
     </label>
+
+    <label class="check">
+      <input class="check__input" type="radio" name="shipping">
+      <span class="check__box"></span>
+      Express shipping
+    </label>
+
   </div>
 
-  <!-- Radio buttons -->
-  <div class="sg-block">
-    <h3 class="sg-subtitle">Radio buttons</h3>
+</div>
 
-    <div class="radio-group">
-      <label class="check">
-        <input class="check__input" type="radio" name="shipping">
-        <span class="check__box"></span>
-        Standard shipping
-      </label>
+<!-- TOGGLE -->
+<div class="sg-block">
 
-      <label class="check">
-        <input class="check__input" type="radio" name="shipping">
-        <span class="check__box"></span>
-        Express shipping
-      </label>
-    </div>
+  <h3 class="sg-subtitle">Checkbox trick (no JS)</h3>
+
+  <input class="toggle" type="checkbox" id="sg-toggle">
+
+  <label class="btn btn--ghost" for="sg-toggle">
+    Open / close panel
+  </label>
+
+  <div class="panel">
+    <p class="panel__text">
+      This opens using only CSS (hidden checkbox + label).
+    </p>
   </div>
 
-  <!-- Checkbox trick -->
-  <div class="sg-block">
-    <h3 class="sg-subtitle">Checkbox trick (no JS)</h3>
+</div>
 
-    <input class="toggle" type="checkbox" id="sg-toggle">
-    <label class="btn btn--ghost" for="sg-toggle">Open / close panel</label>
+</section>
 
-    <div class="panel">
-      <p class="panel__text">
-        This opens using only CSS (hidden checkbox + label).
-      </p>
-    </div>
-  </div>
+<hr>
+
+<!-- FOOTER -->
+<section>
+
+<h2>Footer</h2>
+
+<footer class="footer">
+  <p>© 2026 Blush & Cozy Crochet</p>
+</footer>
+
 </section>
 
 </div>
