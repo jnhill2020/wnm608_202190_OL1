@@ -37,7 +37,7 @@
         $name = htmlspecialchars($row['name']);
         $price = number_format($row['price'], 2);
         $description = htmlspecialchars($row['description']);
-        $image = !empty($row['image']) ? htmlspecialchars($row['image']) : 'images/placeholder.jpg';
+        $image = !empty($row['image']) ? htmlspecialchars($row['image']) : 'placeholder.jpeg';
 
         $category = "crochet";
 
@@ -55,11 +55,12 @@
         data-price="<?= $row['price'] ?>"
         data-category="<?= $category ?>">
 
-        <img src="<?= $image ?>" alt="<?= $name ?>" class="product-img">
+        <img src="images/<?= $image ?>" alt="<?= $name ?>" class="product-img">
 
         <h3><?= $name ?></h3>
         <p class="product-price">$<?= $price ?></p>
         <p><?= $description ?></p>
+
         <a class="btn" href="product.php?id=<?= $row['id'] ?>">View Product</a>
       </div>
 
