@@ -16,6 +16,7 @@ if (isset($_SESSION['cart'])) {
 <nav>
   <a href="index.php">Home</a>
   <a href="products.php">Shop</a>
+  <a href="about.php">About</a>
 
   <a href="cart.php" class="cart-link">
     Cart
@@ -23,6 +24,4 @@ if (isset($_SESSION['cart'])) {
       <span class="cart-badge"><?= $count ?></span>
     <?php endif; ?>
   </a>
-
-  <a href="checkout.php">Checkout</a>
 </nav>
